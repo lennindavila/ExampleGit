@@ -24,6 +24,7 @@ public class StudentDataAccessServiceTest {
     private EmbeddedDatabase dataSource;
     private StudentDataAccessService studentDataAccessService;
 
+	//Este metodo es un before desde repo1
     @Before
     public void setUp() throws Exception {
         jdbcTemplate = new JdbcTemplate();
@@ -70,7 +71,7 @@ public class StudentDataAccessServiceTest {
     }
 
     private Student getStudent() {
-        return new Student(getUUID(), "Maria", "Mitocode", "maria@mitocode.com", Student.Gender.FEMALE);
+        return new Student(getUUID(), "Lennin", "Mitocode", "lennin@mitocode.com", Student.Gender.FEMALE);
     }
     private UUID getUUID(){
         String source = "c15f3559-abdf-4270-06e2-379c1be40b6f";
