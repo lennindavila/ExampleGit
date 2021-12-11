@@ -33,49 +33,49 @@ public class StudentDataAccessServiceTest {
 
         dataSource = new EmbeddedDatabaseBuilder()
                 .setType(EmbeddedDatabaseType.H2)
-                .addScript("/dbunit/init.sql")
+                .addScript("/repo1/init.sql")
                 .build();
 
         jdbcTemplate.setDataSource(dataSource);
 
         studentDataAccessService = new StudentDataAccessService(jdbcTemplate);
     }
-
+	//repo1
     @Test
     public void validateASelect() {
         List<Student> students = studentDataAccessService.selectAllStudents();
         assertEquals(students.size(), 0);
     }
-	//Este es otro comentario sobre un metodo test
+	//Este es otro comentario sobre un metodo test repo1
     @Test
     public void validateBInsert() {
         studentDataAccessService.insertStudent(getUUID(), getStudent());
         List<Student> students = studentDataAccessService.selectAllStudents();
 
         assertNotNull(students.get(0).getStudentId());
-        assertEquals(students.get(0).getFirstName(), "Leano");
-        assertEquals(students.get(0).getLastName(), "Mitocode");
-        assertEquals(students.get(0).getEmail(), "Iris@mitocode.com");
+        assertEquals(students.get(0).getFirstName(), "repo1");
+        assertEquals(students.get(0).getLastName(), "repo1");
+        assertEquals(students.get(0).getEmail(), "repo1@mitocode.com");
         assertEquals(students.get(0).getGender(), Student.Gender.FEMALE);
     }
 
-	//Este codigo permite hacer un test
+	//Este codigo permite hacer un test repo1
     @Test
     public void validateCUpdateFirstName() throws UnsupportedEncodingException {
-        studentDataAccessService.updateFirstName(getUUID(), "Melissa");
+        studentDataAccessService.updateFirstName(getUUID(), "repo1");
         List<Student> students = studentDataAccessService.selectAllStudents();
 
         assertEquals(students.get(0).getStudentId().toString(), getUUID().toString());
-        assertEquals(students.get(0).getFirstName(), "Lenin");
-        assertEquals(students.get(0).getLastName(), "Mitocode");
-        assertEquals(students.get(0).getEmail(), "Samira@mitocode.com");
+        assertEquals(students.get(0).getFirstName(), "repo1");
+        assertEquals(students.get(0).getLastName(), "repo1");
+        assertEquals(students.get(0).getEmail(), "repo1@mitocode.com");
         assertEquals(students.get(0).getGender(), Student.Gender.FEMALE);
     }
-
+	//Este getstudent repo1
     private Student getStudent() {
-        return new Student(getUUID(), "Pilar", "Mitocode", "Pilar@mitocode.com", Student.Gender.FEMALE);
+        return new Student(getUUID(), "repo1", "repo1", "repo1@mitocode.com", Student.Gender.FEMALE);
     }
-	
+	//Este uid repo1
     private UUID getUUID(){
         String source = "c15f3559-abdf-4270-06e2-379c1be40b6f";
         return UUID.fromString(source);
