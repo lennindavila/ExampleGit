@@ -74,7 +74,7 @@ public class StudentDataAccessServiceTest {
         assertEquals(students.get(0).getGender(), Student.Gender.FEMALE);
     }
 	
-	    @Test
+	@Test
     public void validateCUpdateLastName() throws UnsupportedEncodingException {
         studentDataAccessService.updateFirstName(getUUID(), "repo1");
         List<Student> students = studentDataAccessService.selectAllStudents();
