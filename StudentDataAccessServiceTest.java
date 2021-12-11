@@ -24,7 +24,9 @@ public class StudentDataAccessServiceTest {
     private EmbeddedDatabase dataSource;
     private StudentDataAccessService studentDataAccessService;
 
+
 	//Este metodo es un before desde repo1
+	//Comentario desde repo3
     @Before
     public void setUp() throws Exception {
         jdbcTemplate = new JdbcTemplate();
@@ -44,16 +46,16 @@ public class StudentDataAccessServiceTest {
         List<Student> students = studentDataAccessService.selectAllStudents();
         assertEquals(students.size(), 0);
     }
-
+	//Este es otro comentario sobre un metodo test
     @Test
     public void validateBInsert() {
         studentDataAccessService.insertStudent(getUUID(), getStudent());
         List<Student> students = studentDataAccessService.selectAllStudents();
 
         assertNotNull(students.get(0).getStudentId());
-        assertEquals(students.get(0).getFirstName(), "Maria");
+        assertEquals(students.get(0).getFirstName(), "Lennin");
         assertEquals(students.get(0).getLastName(), "Mitocode");
-        assertEquals(students.get(0).getEmail(), "maria@mitocode.com");
+        assertEquals(students.get(0).getEmail(), "lennin@mitocode.com");
         assertEquals(students.get(0).getGender(), Student.Gender.FEMALE);
     }
 
