@@ -50,27 +50,27 @@ public class StudentDataAccessServiceTest {
         List<Student> students = studentDataAccessService.selectAllStudents();
 
         assertNotNull(students.get(0).getStudentId());
-        assertEquals(students.get(0).getFirstName(), "Lennin");
+        assertEquals(students.get(0).getFirstName(), "Leano");
         assertEquals(students.get(0).getLastName(), "Mitocode");
-        assertEquals(students.get(0).getEmail(), "lennin@mitocode.com");
+        assertEquals(students.get(0).getEmail(), "Iris@mitocode.com");
         assertEquals(students.get(0).getGender(), Student.Gender.FEMALE);
     }
 
 	//Este codigo permite hacer un test
     @Test
     public void validateCUpdateFirstName() throws UnsupportedEncodingException {
-        studentDataAccessService.updateFirstName(getUUID(), "Mary");
+        studentDataAccessService.updateFirstName(getUUID(), "Melissa");
         List<Student> students = studentDataAccessService.selectAllStudents();
 
         assertEquals(students.get(0).getStudentId().toString(), getUUID().toString());
-        assertEquals(students.get(0).getFirstName(), "Mary");
+        assertEquals(students.get(0).getFirstName(), "Lenin");
         assertEquals(students.get(0).getLastName(), "Mitocode");
-        assertEquals(students.get(0).getEmail(), "maria@mitocode.com");
+        assertEquals(students.get(0).getEmail(), "Samira@mitocode.com");
         assertEquals(students.get(0).getGender(), Student.Gender.FEMALE);
     }
 
     private Student getStudent() {
-        return new Student(getUUID(), "Maria", "Mitocode", "maria@mitocode.com", Student.Gender.FEMALE);
+        return new Student(getUUID(), "Pilar", "Mitocode", "Pilar@mitocode.com", Student.Gender.FEMALE);
     }
     private UUID getUUID(){
         String source = "c15f3559-abdf-4270-06e2-379c1be40b6f";
